@@ -1,0 +1,14 @@
+{
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ],
+  "buildCommand": "npm run vercel-build",
+  "outputDirectory": "dist",
+  "framework": "vite",
+  "env": {
+    "VITE_SUPABASE_URL": "https://zwutfiahdsghjafvrqtp.supabase.co",
+    "VITE_SUPABASE_ANON_KEY": "your-anon-key-here",
+    "VITE_PAYSTACK_PUBLIC_KEY": "pk_live_a85dc385c82361070391730c77db0c88c70c329c",
+    "VITE_API_URL": "https://secquiz-api.vercel.app"
+  }
+}
