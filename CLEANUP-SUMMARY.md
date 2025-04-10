@@ -1,6 +1,3 @@
-Paystack_live_key: sk_live_551efabcb0ab0bb3e7c9a0c6c5da77e3ef0b2b11
-
-
 # Codebase Cleanup Summary
 
 This document summarizes the cleanup actions performed to remove unnecessary files and dependencies from the SecQuiz project.

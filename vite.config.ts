@@ -21,7 +21,7 @@ export default defineConfig(({ mode }) => {
     },
     server: {
       port: 8080,
-      strictPort: true,
+      strictPort: false,
       hmr: {
         overlay: true,
       },
@@ -41,10 +41,11 @@ export default defineConfig(({ mode }) => {
     },
     optimizeDeps: {
       include: [
-        'react', 
-        'react-dom', 
+        'react',
+        'react-dom',
         '@radix-ui/react-tooltip',
-        '@supabase/supabase-js', 
+        '@emotion/react',
+        '@supabase/supabase-js',
         'zustand'
       ],
       force: true

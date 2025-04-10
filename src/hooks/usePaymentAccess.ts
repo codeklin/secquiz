@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '@/lib/supabase';
-import { useAuthStore } from '@/lib/auth';
+import { useAuthStore } from '@/stores/auth';
 
 export function usePaymentAccess() {
   const [hasAccess, setHasAccess] = useState(false);
   const [loading, setLoading] = useState(true);
-  const { user } = useAuthStore();
+  const user = useAuthStore(state => state.user);
 
   useEffect(() => {
     async function checkAccess() {
@@ -24,12 +24,10 @@ export function usePaymentAccess() {
 
         if (error) throw error;
 
-        // Temporarily grant access to all authenticated users
-        // const hasValidAccess = data?.has_access &&
-        //   (!data?.access_expires_at || new Date(data.access_expires_at) > new Date());
+        const hasValidAccess = data?.has_access &&
+          (!data?.access_expires_at || new Date(data.access_expires_at) > new Date());
 
-        // Always grant access to authenticated users for now
-        setHasAccess(true);
+        setHasAccess(hasValidAccess);
       } catch (error) {
         console.error('Error checking access:', error);
         setHasAccess(false);
